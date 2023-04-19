@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% comment %} <form name="form" method="get" action="{% url 'data' %}">
+    <label for='first_name'>First Name:</label>
+    <input type="text" name='first_name' id='first_name'>
+    <br><br>
+    <label for='last_name'>Last Name:</label>
+    <input type="text" name='last_name' id='last_name'>
+    <br><br>
+    <button type="submit">Search</button>
+</form>
+
+<table class="table table-bordered table-hover table-condensed">
+    <tbody>
+        <tr>
+            <td class="title">Date Missing:</td>
+            <td>{{ record.date_missing }}</td>
+        </tr>
+        <tr>
+            <td class="title">Last Name:</td>
+            <td>{{ record.last_name }}</td>
+        </tr>
+        <tr>
+            <td class="title">First Name:</td>
+            <td>{{ record.first_name }}</td>
+        </tr>
+        <tr>
+            <td class="title">Age at Missing:</td>
+            <td>{{ record.age_at_missing }}</td>
+        </tr>
+        <tr>
+            <td class="title">City:</td>
+            <td>{{ record.city }}</td>
+        </tr>
+        <tr>
+            <td class="title">State:</td>
+            <td>{{ record.state }}</td>
+        </tr>
+        <tr>
+            <td class="title">Gender:</td>
+            <td>{{ record.gender }}</td>
+        </tr>
+        <tr>
+            <td class="title">Race:</td>
+            <td>{{ record.race }}</td>
+        </tr>
+    </tbody>
+</table>
+ {% endcomment %}
+<br>
+<body class="text-center">
+    <form name="form" method="get" action="{% url 'data' %}">
+        <div>
+            <label for="date_missing">Date Missing:</label>
+            <input type="text" id="date_missing" name="date_missing" value="{{ record.date_missing }}">
+        </div>
+        <div>
+            <label for="last_name">Last Name:</label>
+            <input type="text" id="last_name" name="last_name" value="{{ record.last_name }}">
+        </div>
+        <div>
+            <label for="first_name">First Name:</label>
+            <input type="text" id="first_name" name="first_name" value="{{ record.first_name }}">
+        </div>
+        <div>
+            <label for="age_at_missing">Age at Missing:</label>
+            <input type="text" id="age_at_missing" name="age_at_missing" value="{{ record.age_at_missing }}">
+        </div>
+        <div>
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" value="{{ record.city }}">
+        </div>
+        <div>
+            <label for="state">State:</label>
+            <input type="text" id="state" name="state" value="{{ record.state }}">
+        </div>
+        <div>
+            <label for="gender">Gender:</label>
+            <input type="text" id="gender" name="gender" value="{{ record.gender }}">
+        </div>
+        <div>
+            <label for="race">Race:</label>
+            <input type="text" id="race" name="race" value="{{ record.race }}">
+        </div>
+    </form>
+</body>
+<br>
+
+<p class="text-center">{{ record.first_name}} {{record.last_name }} has been missing since {{ record.date_missing }} and was last seen in {{ record.city }}, {{ record.state }}.
+</p>
+
+{% endblock %}

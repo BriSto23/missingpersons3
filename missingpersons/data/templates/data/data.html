@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content%}
+<br><p class="text-center lead fw-normal mb-0">Below is a list of missing persons from the state of Utah since 2003:</p><br>
+<table class="table table-bordered table-hover table-condensed">
+    <thead><tr><th title="Field #1">Date Missing</th>
+    <th title="Field #2">Last Name</th>
+    <th title="Field #3">First Name</th>
+    <th title="Field #4">Age at Missing</th>
+    <th title="Field #5">City</th>
+    <th title="Field #6">State</th>
+    <th title="Field #7">Gender</th>
+    <th title="Field #8">Race</th>
+    <th title="Field #9">About</th>
+    </tr></thead>
+    <tbody>
+    {% for oPerson in person %}
+    <tr>
+    <td>{{ oPerson.date_missing }}</td>
+    <td>{{ oPerson.last_name }}</td>
+    <td>{{ oPerson.first_name }}</td>
+    <td align="right">{{ oPerson.age_at_missing }}</td>
+    <td>{{ oPerson.city }}</td>
+    <td>{{ oPerson.state }}</td>
+    <td>{{ oPerson.gender }}</td>
+    <td>{{ oPerson.race }}</td>
+    <td>
+        <a href="{% url 'learn' id=oPerson.last_name %}">Learn More</a>
+    </td>
+    {% endfor %}
+    </tr>
+    </tbody>
+</table>
+</html>
+{% endblock %}
